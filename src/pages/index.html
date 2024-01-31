@@ -22,8 +22,11 @@
     <script type="module" src="/build/msd.esm.js"></script>
     <!-- Global initialization script -->
     <script type="module" src="/build/index.esm.js"></script>
+
+    <script type="module" src="https://unpkg.com/custom-tab"></script>
   </head>
   <body>
+   
     <!-- 
       This is a non-functional element.
       Contents of this element will be parsed and injected in the bundle's HTML when deploying.
@@ -31,8 +34,19 @@
     <atomic-hosted-page>
       <atomic-search-interface fields-to-include='["source","filetype","job_careerlevel","job_category","job_location","job_area","job_hours","documenttype"]'>
         <atomic-search-layout>
+          <style>
+            .tab-container {
+              width: 100%;
+              height: 100px;
+              display: flex;
+            }
+            .tab-container custom-tab {
+              margin-right: 10px;
+            }
+          </style>
           <atomic-layout-section section="search">
             <atomic-search-box></atomic-search-box>
+            
           </atomic-layout-section>
           <atomic-layout-section section="facets">
             <atomic-category-facet
@@ -47,6 +61,12 @@
             </atomic-facet-manager>
           </atomic-layout-section>
           <atomic-layout-section section="main">
+            <div class="tab-container"> 
+              <custom-tab expression="@uri" label="All" is-active="false" excluded-facets="source,filetype"></custom-tab> 
+              <custom-tab expression="@uri=findajob" label="Jobs" is-active="false" excluded-facets="source,filetype"></custom-tab> 
+              <custom-tab expression="@filetype==PDF" label="PDFs" is-active="false" excluded-facets="source,filetype"></custom-tab> 
+              
+          </div>
             <atomic-generated-answer></atomic-generated-answer>
             <atomic-layout-section section="status">
               <atomic-breadbox></atomic-breadbox>
