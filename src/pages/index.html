@@ -29,12 +29,19 @@
       Contents of this element will be parsed and injected in the bundle's HTML when deploying.
     -->
     <atomic-hosted-page>
-      <atomic-search-interface>
+      <atomic-search-interface fields-to-include='["source","filetype","job_careerlevel","job_category","job_location","job_area","job_hours","documenttype"]'>
         <atomic-search-layout>
           <atomic-layout-section section="search">
             <atomic-search-box></atomic-search-box>
           </atomic-layout-section>
           <atomic-layout-section section="facets">
+            <atomic-category-facet
+            field="hierarchy"
+            label="Catgory"
+            delimiting-character="|"
+            heading-level="4"
+            ></atomic-category-facet>
+            </atomic-category-facet>
             <atomic-facet-manager>
               <atomic-facet field="source" label="Source" display-values-as="checkbox"></atomic-facet><atomic-facet field="filetype" label="File Type" display-values-as="checkbox"></atomic-facet><atomic-facet field="job_careerlevel" label="Career Level" display-values-as="checkbox"></atomic-facet><atomic-facet field="job_category" label="Job Category" display-values-as="checkbox"></atomic-facet><atomic-facet field="job_location" label="Job Location" display-values-as="checkbox"></atomic-facet><atomic-facet field="job_area" label="Area" display-values-as="checkbox"></atomic-facet><atomic-facet field="job_hours" label="Hours" display-values-as="checkbox"></atomic-facet>
             </atomic-facet-manager>

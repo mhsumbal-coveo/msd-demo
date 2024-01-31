@@ -1,0 +1,129 @@
+<style>
+    .field {
+        display: inline-flex;
+        white-space: nowrap;
+        align-items: center;
+    }
+  
+    .field-label {
+        font-weight: bold;
+        margin-right: 0.25rem;
+    }
+  
+    atomic-result-section-title > atomic-result-link > a:hover {
+      color: #0057da;
+    }
+  
+    atomic-result-section-title > atomic-result-link > a:visited:hover {
+      color: var(--atomic-visited);
+    }
+  
+    atomic-result-section-title > atomic-result-link > a > atomic-result-text {
+      color: #0057da;
+    }
+  
+    atomic-result-section-title > atomic-result-link > a:visited > atomic-result-text {
+      color: var(--atomic-visited);
+    }
+  
+    .badge-documenttype::part(result-badge-element) {
+            background-color: #e4e3e3;
+        }
+  
+        .badge-documenttype::part(result-badge-label) {
+                color: #000000;
+            }
+        @media (min-width: 1024px) {
+        .result-root.with-sections.display-list.image-small,
+        .result-root.with-sections.display-list.image-icon,
+        .result-root.with-sections.display-list.image-none {
+            grid-template-areas: "badges . ."
+                                "title title actions"
+                                "title-metadata title-metadata title-metadata"
+                                "emphasized emphasized emphasized"
+                                "excerpt excerpt excerpt"
+                                "bottom-metadata bottom-metadata bottom-metadata"
+                                "children children children";
+            align-items: center;
+        }
+    }
+  
+    @media (min-width: 1024px) {
+        .result-root.with-sections.display-list.image-none atomic-result-section-excerpt,
+        .result-root.with-sections.display-list.image-icon atomic-result-section-excerpt,
+        .result-root.with-sections.display-list.image-small atomic-result-section-excerpt {
+            margin-top: 0.75rem;
+        }
+    }
+  
+    @media (min-width: 1024px) {
+        .result-root.with-sections.display-list.image-none.density-normal atomic-result-section-actions,
+        .result-root.with-sections.display-list.image-icon.density-normal atomic-result-section-actions,
+        .result-root.with-sections.display-list.image-small.density-normal atomic-result-section-actions {
+            margin-bottom: 0;
+            line-height: 0px;
+        }
+    }
+  
+        @media (min-width: 1024px) {
+        .result-root.with-sections.display-grid.image-none.density-normal,
+        .result-root.with-sections.display-grid.image-icon.density-normal,
+        .result-root.with-sections.display-grid.image-small.density-normal {
+            grid-template-areas:
+                "badges          . actions"
+                "visual          . ."
+                "title           . ."
+                "title-metadata  . ."
+                "emphasized      . ."
+                "excerpt         . ."
+                "bottom-metadata . .";
+            grid-template-rows: repeat(7, auto);
+            grid-template-columns: auto 0 auto;
+        }
+    }
+  
+    @media (min-width: 1024px) {
+        .result-root.with-sections.display-grid.image-none atomic-result-section-excerpt,
+        .result-root.with-sections.display-grid.image-icon atomic-result-section-excerpt,
+        .result-root.with-sections.display-grid.image-small atomic-result-section-excerpt {
+            margin-top: 0.75rem;
+        }
+    }
+  
+    @media (min-width: 1024px) {
+        div.result-root.with-sections.display-grid.image-none.density-normal > atomic-result-section-actions,
+        div.result-root.with-sections.display-grid.image-icon.density-normal > atomic-result-section-actions,
+        div.result-root.with-sections.display-grid.image-small.density-normal > atomic-result-section-actions {
+            margin-bottom: 0;
+            line-height: 0px;
+            margin-top: 0;
+        }
+    }
+  
+  </style>
+  <atomic-result-section-actions>
+        <atomic-quickview></atomic-quickview>
+        </atomic-result-section-actions>
+  <atomic-result-section-visual image-size="icon">
+  </atomic-result-section-visual>
+  <atomic-result-section-badges>
+    <atomic-result-badge class="badge-documenttype" field="documenttype"></atomic-result-badge>
+    </atomic-result-section-badges>
+  <atomic-result-section-title>
+    <atomic-result-link>
+        <a slot="attributes" target="_self"></a>
+    </atomic-result-link>
+  </atomic-result-section-title>
+  <atomic-result-section-title-metadata>
+  </atomic-result-section-title-metadata>
+  <atomic-result-section-excerpt>
+        <atomic-result-text field="excerpt"></atomic-result-text>
+    </atomic-result-section-excerpt>
+  <atomic-result-section-bottom-metadata>
+    <atomic-result-fields-list>
+    <atomic-field-condition class="field" if-defined="filetype">
+        <span class="field-label"><atomic-text value="filetype"></atomic-text>:</span>
+        <atomic-result-text field="filetype"></atomic-result-text>
+        </atomic-field-condition>
+    </atomic-result-fields-list>
+  </atomic-result-section-bottom-metadata>
